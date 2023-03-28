@@ -1,5 +1,5 @@
 
-/*index*/
+/*assortment*/
 .box{
     background: lightblue;
     border: 1px solid dodgerblue;
@@ -9,7 +9,7 @@
 
 .navbar{
     background: white;
-    border-bottom: 3px solid rgb(41, 41, 67) ;
+    border-bottom: 3px solid rgb(41, 41, 67);
 }
 .category{
     background:white;

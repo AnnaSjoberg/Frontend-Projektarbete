@@ -20,7 +20,7 @@ clear.addEventListener("click", e => {
 
 function clearCart(e){
     e.preventDefault();
-    window.location.href = "index.html";
+    window.location.href = "assortment.html";
     sessionStorage.clear();
 }
 
