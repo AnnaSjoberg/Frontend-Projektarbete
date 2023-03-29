@@ -10,6 +10,7 @@
 .navbar{
     background: white;
     border-bottom: 3px solid rgb(41, 41, 67) ;
+    
 }
 .category{
     background:white;
@@ -60,41 +61,95 @@
     z-index: 1;
 }
 
-
-/*orderForm*/
-.page_header{
-    margin: 2rem;
+/*form*/
+.grey {
+    background-color: #2b282607;
 }
 
-#yourInformation{
-    border: solid 1px lightblue;
-
+.start-color {
+    background-color: #ececec;
 }
 
-#yourProducts{
-    border: solid 1px lightblue;
- 
+.form-control:focus {
+    border-color: #ffffff;
+    box-shadow: 0 0 0 0.2rem #ffffff40;
+}
+.white-field {
+    background-color: #ffffff !important;
+    border-color: #ffffff;
+    border-width: 1.5px;
+}
+.input-correct {
+    background-color: #b5cfb5 !important;
+    border-color: #7c9a7c;
+    border-width: 1.5px;
 }
 
-#cart{
-    margin-top: 1rem;
+.input-not-correct {
+    background-color: #ffe1e1 !important;
+    border-color: #ed877c;
+    border-width: 1.5px;
 }
 
-
-#totalPrice{
-    padding-top: 0.5rem;
-    margin-top: 1rem;
-    border-top: 1px dotted;
+#form-error {
+    color: #da6e62;
 }
 
-#btn_clearCart{
-    width: 7rem;
- }
+.centered {
+    text-align: center;
+}
 
- .font-open-sans {
-    font-family: 'Open Sans', sans-serif;
- }
+.width-30 {
+    width: 30%;
+}
 
- .float-right {
-    float: right;
- }
+.width-70 {
+    width: 70%;
+}
+
+.margin-0 {
+    margin: 0 0 0 0;
+}
+
+.productImg {
+    width: 80%;
+    height: 40%;
+}
+
+.product-h2 {
+    font-size: 300%;
+}
+
+p {
+    font-size: 200%;
+}
+
+.form-group {
+    margin-bottom: 1.2%;
+}
+
+.italic {
+    font-style: italic;
+}
+
+.font-80 {
+    font-size: 80%;
+}
+
+.bold {
+    font-weight: bold;
+}
+
+.font-150 {
+    font-size: 150%;
+}
+
+.pt-10 {
+    padding-top: 10%;
+}
+
+.footer {
+    font-style: italic;
+    font-size: 80%;
+    padding-left: 20px;
+}
