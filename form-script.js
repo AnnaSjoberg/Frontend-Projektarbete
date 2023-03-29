@@ -72,7 +72,10 @@ function orderInfo(e) {
     var postal = document.getElementById("postal").value;
     var city = document.getElementById("city").value;
     
-    if(checkValid(name.match(validRegexName) && 1 < name.length && name.length < 51, "name", name)===true &&
+    if(!sessionStorage.getItem("product")){
+        document.getElementById("form-error").innerHTML = "";
+        document.getElementById("form-error").innerHTML += "Please add product";
+    } else if(checkValid(name.match(validRegexName) && 1 < name.length && name.length < 51, "name", name)===true &&
     checkValid(mail.match(validRegexMail) && mail.length < 51, "mail", mail)===true &&
     checkValid(phone.match(validRegexPhone) && phone.length < 51, "phoneNumber", phone)===true &&
     checkValid(street.match(validRegexStreet) && street.length < 51 && street.length > 3, "streetAddress", street)===true &&
