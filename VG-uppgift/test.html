@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 60px;
+  background-color: #f2f2f2;
+}
+
+.logo {
+  margin-left: 20px;
+}
+
+.links-left {
+  margin-left: 20px;
+}
+
+.links-left a {
+  margin-right: 20px;
+}
+
+.links-right {
+  margin-right: 20px;
+}
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropbtn {
+  background-color: #f2f2f2;
+  color: #333;
+  font-size: 16px;
+  border: none;
+  cursor: pointer;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  top: 60px;
+  right: 0;
+  background-color: #f2f2f2;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+.dropdown-content a {
+  color: #333;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+.dropdown-content a:hover {
+  background-color: #ddd;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+    </style>
+</head>
+<body>
+    
+    <div class="header">
+        <div class="links-left">
+          <a href="#">Link 1</a>
+          <a href="#">Link 2</a>
+          <a href="#">Link 3</a>
+        </div>
+
+        <div class="links-center"></div>
+        <div class="links-right">
+          <div class="dropdown">
+            <button class="dropbtn">Dropdown</button>
+            <div class="dropdown-content">
+              <a href="#">Option 1</a>
+              <a href="#">Option 2</a>
+              <a href="#">Option 3</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <h1>test page</h1>
+
+      <div>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Sit facilis libero repudiandae, nostrum porro expedita ab distinctio. Optio magni numquam laudantium vitae quia ipsum maiores eligendi, eum, labore odit, praesentium neque! Cum similique asperiores laborum quaerat cumque repellendus culpa sunt fugit? Corrupti, consequatur cum repellendus quis vel eius sunt deleniti nemo! Consequuntur iste rem, labore fugiat sequi, dolorem laborum nam in veritatis impedit perferendis dolorum nihil, hic reprehenderit tempora libero quisquam ab omnis atque amet velit saepe! Minus magnam officiis suscipit. Ipsa, dicta nulla libero magnam amet corrupti vero odio nemo eos assumenda totam. Facere perspiciatis illo maiores sunt itaque!</div>
+</body>
+</html>

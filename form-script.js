@@ -1,12 +1,3 @@
-const form = document.getElementById('form');
-submitButton.addEventListener("click", orderInfo);
-
-var product = JSON.parse(sessionStorage.getItem("product"));
-document.getElementById("productInfo").innerHTML = product.title;
-document.getElementById("price").innerHTML = "€ " + product.price; //+ sek/usd...
-var img = document.createElement("img");
-img.src = product.image;
-document.querySelector(".productImg").append(img);
 const validRegexMail = /[\w._%+-]+@[\w.-]+\.[a-zA-Z]{2,4}/; 
 const validRegexPhone = /^[+]*[(]{0,1}[0-9]{1,3}[)]{0,1}[-\s/0-9]*$/g; 
 const validRegexStreet = /^[A-Za-z0-9-åäöÅÄÖ _]*[A-Za-z0-9[A-Za-z0-9 _]*$/;
@@ -14,29 +5,32 @@ const validRegexCity = /^[a-zA-Z\s-åäöÅÄÖ]*$/;
 const validRegexPostal =/^[0-9]{3}\s?[0-9]{2}$/;
 const validRegexName = /^[a-zA-Z-åäöÅÄÖ ]+(([',. -][a-zA-Z ])?[a-zA-Z]*)*$/; 
 
+//CLEAR-KOD
+
 clear.addEventListener("click", e => {
     clearCart(e);
-  })
+})
 
 function clearCart(e){
     e.preventDefault();
-    window.location.href = "index.html";
+    window.location.href = "assortment.html";
     sessionStorage.clear();
 }
 
+//FRAM HIT
 
 function checkValid(ifStatement, htmlVar, variable){
     if(variable.length==0){
-
+        
     } else if (ifStatement){
-      document.getElementById(htmlVar).classList.remove("input-not-correct");
-      document.getElementById(htmlVar).classList.add("input-correct");
-      return true;
-  } else {
-      document.getElementById(htmlVar).classList.remove("input-correct");
-      document.getElementById(htmlVar).classList.add("input-not-correct");
-      return false;
-  }
+        document.getElementById(htmlVar).classList.remove("input-not-correct");
+        document.getElementById(htmlVar).classList.add("input-correct");
+        return true;
+    } else {
+        document.getElementById(htmlVar).classList.remove("input-correct");
+        document.getElementById(htmlVar).classList.add("input-not-correct");
+        return false;
+    }
 }
 
 function sendToOrdered(){
@@ -58,15 +52,26 @@ document.addEventListener('keyup', (event) => {
     checkValid(postal.match(validRegexPostal), "postal", postal);
 });
 
-    function orderInfo(e) {
-        e.preventDefault();
+const form = document.getElementById('form');
+submitButton.addEventListener("click", orderInfo);
+
+var product = JSON.parse(sessionStorage.getItem("product"));
+document.getElementById("productInfo").innerHTML = product.title;
+document.getElementById("price").innerHTML = "€ " + product.price.toFixed(2); 
+var img = document.createElement("img");
+img.src = product.image;
+document.querySelector(".productImg").appendChild(img);
+img.classList.add("productImg");
+
+function orderInfo(e) {
+    e.preventDefault();
     var name = document.getElementById("name").value;
     var mail = document.getElementById("mail").value;
     var phone = document.getElementById("phoneNumber").value;
     var street = document.getElementById("streetAddress").value;
     var postal = document.getElementById("postal").value;
     var city = document.getElementById("city").value;
-
+    
     if(checkValid(name.match(validRegexName) && 1 < name.length && name.length < 51, "name", name)===true &&
     checkValid(mail.match(validRegexMail) && mail.length < 51, "mail", mail)===true &&
     checkValid(phone.match(validRegexPhone) && phone.length < 51, "phoneNumber", phone)===true &&
@@ -81,6 +86,7 @@ document.addEventListener('keyup', (event) => {
         sessionStorage.setItem('city', city);
         sendToOrdered();
     } else {
+        document.getElementById("form-error").innerHTML = "";
         document.getElementById("form-error").innerHTML += "Please fill out all fields with correct information";
     }
 }

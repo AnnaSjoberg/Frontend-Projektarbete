@@ -1,5 +1,5 @@
 
-/*assortment*/
+/*index*/
 .box{
     background: lightblue;
     border: 1px solid dodgerblue;
@@ -7,9 +7,9 @@
     font-size: 2rem;
 }
 
-.navbar{
+.navbar{    
     background: white;
-    border-bottom: 3px solid rgb(41, 41, 67) ;
+    border-bottom: 3px solid rgb(41, 41, 67);
 }
 .category{
     background:white;
@@ -18,6 +18,33 @@
     padding-top: 3rem;
 }
 
+#dropdown-cart{    
+    width: max-content;
+    padding: 5px;
+}
+
+.link-pos-l{
+    float: left;
+}
+.link-pos-r{
+    float: right;
+}
+
+.items-in-cart {   
+    max-height: 200px; /* set maximum height */
+    overflow-y: auto; /* add vertical scrollbar */
+    border-bottom: 2px solid darkgray;
+}
+.button-group{
+    display: flex; justify-content: space-between;
+   
+}
+.sum-item{
+    text-align: center;
+    font-weight: bold;
+    font-size: larger;
+    padding-bottom: 3px;
+}
 .card-title{
     font-size: 1rem;
     font-weight: 600;
@@ -75,6 +102,10 @@
     border: solid 1px lightblue;
  
 }
+/*
+#cartFooter{
+  
+}*/
 
 #cart{
     margin-top: 1rem;
@@ -89,12 +120,4 @@
 
 #btn_clearCart{
     width: 7rem;
- }
-
- .font-open-sans {
-    font-family: 'Open Sans', sans-serif;
- }
-
- .float-right {
-    float: right;
  }

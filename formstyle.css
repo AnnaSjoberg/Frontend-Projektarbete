@@ -44,7 +44,7 @@
 }
 
 .productImg {
-    width: 100%;
+    width: 80%;
     height: 40%;
 }
 
@@ -58,4 +58,24 @@ p {
 
 .form-group {
     margin-bottom: 1.2%;
+}
+
+.italic {
+    font-style: italic;
+}
+
+.font-80 {
+    font-size: 80%;
+}
+
+.bold {
+    font-weight: bold;
+}
+
+.font-150 {
+    font-size: 150%;
+}
+
+.pt-10 {
+    padding-top: 10%;
 }
