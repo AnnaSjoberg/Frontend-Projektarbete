@@ -11,7 +11,7 @@ clear.addEventListener("click", e => {
 
 function clearCart(e){
     e.preventDefault();
-    window.location.href = "assortment.html";
+    window.location.href = "index.html";
     sessionStorage.clear();
 }
 function checkValid(ifStatement, htmlVar, variable){
