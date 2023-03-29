@@ -1,11 +1,9 @@
-const validRegexMail = /[\w._%+-]+@[\w.-]+\.[a-zA-Z]{2,4}/; 
+const validRegexName = /^[a-zA-Z-åäöÅÄÖ]+(([',. -][a-zA-Z-åäöÅÄÖ ])?[a-zA-Z-åäöÅÄÖ]*)*$/; 
+const validRegexMail = /[\w._%+-]+@[\w.-]+\.[a-zA-Z]{2,4}$/; 
 const validRegexPhone = /^[+]*[(]{0,1}[0-9]{1,3}[)]{0,1}[-\s/0-9]*$/g; 
-const validRegexStreet = /^[A-Za-z0-9-åäöÅÄÖ _]*[A-Za-z0-9[A-Za-z0-9 _]*$/;
-const validRegexCity = /^[a-zA-Z\s-åäöÅÄÖ]*$/;
-const validRegexPostal =/^[0-9]{3}\s?[0-9]{2}$/;
-const validRegexName = /^[a-zA-Z-åäöÅÄÖ ]+(([',. -][a-zA-Z ])?[a-zA-Z]*)*$/; 
-
-//CLEAR-KOD
+const validRegexStreet = /^[A-Za-z0-9-åäöÅÄÖ_]+[A-Za-z0-9][A-Za-z-åäöÅÄÖ0-9 _]*$/;
+const validRegexPostal =/^[0-9]{3}\s{1}[0-9]{2}$/;
+const validRegexCity = /^[a-zA-Z-åäöÅÄÖ]+(([,. -][a-zA-Z-åäöÅÄÖ])?[a-zA-Z-åäöÅÄÖ ]*)*$/; 
 
 clear.addEventListener("click", e => {
     clearCart(e);
@@ -16,28 +14,29 @@ function clearCart(e){
     window.location.href = "assortment.html";
     sessionStorage.clear();
 }
-
-//FRAM HIT
-
 function checkValid(ifStatement, htmlVar, variable){
-    if(variable.length==0){
-        
+    if (variable.length==0){
+        document.getElementById(htmlVar).classList.remove("input-not-correct");
+        document.getElementById(htmlVar).classList.remove("input-correct");
+        document.getElementById(htmlVar).classList.add("white-field");
+        return false;
     } else if (ifStatement){
+        document.getElementById(htmlVar).classList.remove("white-field");
         document.getElementById(htmlVar).classList.remove("input-not-correct");
         document.getElementById(htmlVar).classList.add("input-correct");
         return true;
     } else {
+        document.getElementById(htmlVar).classList.remove("white-field");
         document.getElementById(htmlVar).classList.remove("input-correct");
         document.getElementById(htmlVar).classList.add("input-not-correct");
         return false;
     }
 }
-
 function sendToOrdered(){
     window.location.href = "ordered.html";
 }
 
-document.addEventListener('keyup', (event) => {
+document.addEventListener('keyup', () => {
     var phone = document.getElementById("phoneNumber").value;
     var name = document.getElementById("name").value;
     var mail = document.getElementById("mail").value;
@@ -47,8 +46,8 @@ document.addEventListener('keyup', (event) => {
     checkValid(name.match(validRegexName) && 1 < name.length && name.length < 51, "name", name);
     checkValid(mail.match(validRegexMail) && mail.length < 51, "mail", mail);
     checkValid(phone.match(validRegexPhone) && phone.length < 51, "phoneNumber", phone);
-    checkValid(street.match(validRegexStreet) && street.length < 51 && street.length > 3, "streetAddress", street);
-    checkValid(city.match(validRegexCity) && city.length < 51 && city.length > 1, "city", city);
+    checkValid(street.match(validRegexStreet) && 3 < street.length && street.length < 51, "streetAddress", street);
+    checkValid(city.match(validRegexCity) && 1 < city.length && city.length < 51, "city", city);
     checkValid(postal.match(validRegexPostal), "postal", postal);
 });
 

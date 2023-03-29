@@ -10,7 +10,11 @@
     border-color: #ffffff;
     box-shadow: 0 0 0 0.2rem #ffffff40;
 }
-
+.white-field {
+    background-color: #ffffff !important;
+    border-color: #ffffff;
+    border-width: 1.5px;
+}
 .input-correct {
     background-color: #b5cfb5 !important;
     border-color: #7c9a7c;
