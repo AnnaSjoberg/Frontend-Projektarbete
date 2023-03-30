@@ -93,27 +93,7 @@ function renderCards(json) {
     price.innerHTML = `€ ${e.price.toFixed(2)}`;
     dFlex.append(price);
 
-    /*
-    // create "Add to cart" button for each item
-        let itemButton = document.createElement("button");
-        itemButton.innerHTML = "Add to cart";
-
-        // Add info to the button which we will when we want to safe it into Local Storage
-        itemButton.dataset.title = element.title;
-        itemButton.dataset.price = element.price;
-        itemButton.classList.add("add-to-cart", "btn", "btn-sm", "btn-outline-success");
-        item.appendChild(itemButton);*/
-
-    //skapa button och lägg till d-flex
-    /*  let btn = document.createElement("a");
-    btn.className = "btn btn-outline-success p-2";
-    btn.setAttribute('id',`addCart_${e.id}`);
-    btn.href = "#";
-    btn.innerHTML = "Add to cart";
-    btn.addEventListener('click', (event)=>{
-      addToCart(e);
-    });
-    dFlex.append(btn);*/
+    
     const btn = document.createElement("button");
     btn.classList.add("add-to-cart", "btn", "btn-outline-success", "p-2");
     btn.innerHTML = "Add to cart";
@@ -210,8 +190,6 @@ function renderCards(json) {
 }
 
 function displayCartInDropdown() {
-  //  const priceDiv = document.getElementById("overall-price");
-  // priceDiv.innerHTML = "";
 
   // retrieve items from the cart
   let cart = JSON.parse(localStorage.getItem("cart")) || [];
@@ -230,22 +208,28 @@ function displayCartInDropdown() {
     });
 
     const cartDropdown = document.getElementById("dropdown-cart");
-    cartDropdown.innerHTML = "";
+    cartDropdown.innerHTML="";
+    
+    const items = document.createElement("div");
+    items.classList.add("items-in-cart", 'dropdown-item');
 
-    const items = document.createElement("li");
-    items.classList.add("items-in-cart");
-
+    
     for (const key in uniqueItems) {
       let listItem = document.createElement("li");
+      listItem.classList.add('ind-item');
 
       if (uniqueItems.hasOwnProperty(key)) {
         const item = uniqueItems[key];
         const text = `${item.title} x ${item.quantity}`;
         listItem.textContent = text;
+    
         items.appendChild(listItem);
+        
       }
     }
-    cartDropdown.appendChild(items);
+    cartDropdown.appendChild(items); 
+
+
     const btnGroup = document.createElement("div");
     btnGroup.classList.add('button-group');
     const editBtn = document.createElement("button");
@@ -258,7 +242,7 @@ function displayCartInDropdown() {
     checkOutBtn.classList.add("checkout-btn", "btn", "btn-outline-danger", "btn-sm", "p-2", "m-2");
     checkOutBtn.innerHTML = "Checkout";
     checkOutBtn.addEventListener("click", function () {
-      window.location.href = "mahmudscart.html";
+      window.location.href = "checkout.html";
     });
 
     btnGroup.appendChild(editBtn);
@@ -266,7 +250,7 @@ function displayCartInDropdown() {
 
     cartDropdown.appendChild(btnGroup);
 
-    const sumItem = document.createElement("li");
+    const sumItem = document.createElement("div");
     sumItem.classList.add("sum-item");
 
     sumItem.innerHTML = `Overall Price: € ${overallPrice.toFixed(2)}`;
@@ -276,3 +260,35 @@ function displayCartInDropdown() {
 
 loadContent();
 displayCartInDropdown();
+/** const cartDropdown = document.getElementById("dropdown-cart");
+    cartDropdown.innerHTML = "";
+    
+
+
+    for (const key in uniqueItems) {
+      let listItem = document.createElement("li");
+      listItem.classList.add('ind-item');
+
+      if (uniqueItems.hasOwnProperty(key)) {
+        const item = uniqueItems[key];
+        const text = `${item.title} x ${item.quantity}`;
+        listItem.textContent = text;
+      }
+    }
+    
+    
+    
+        const cartDropdown = document.getElementById("dropdown-cart");
+    cartDropdown.innerHTML = "";
+    
+    for (const key in uniqueItems) {
+      let listItem = document.createElement("li");
+      listItem.classList.add('ind-item');
+
+      if (uniqueItems.hasOwnProperty(key)) {
+        const item = uniqueItems[key];
+        const text = `${item.title} x ${item.quantity}`;
+        listItem.textContent = text;
+        cartDropdown.appendChild(listItem);
+      }
+    }*/
