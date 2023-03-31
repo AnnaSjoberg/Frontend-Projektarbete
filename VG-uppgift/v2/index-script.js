@@ -58,6 +58,7 @@ function renderCards(json) {
     let img = document.createElement("img");
     img.className = "card-img-top";
     img.src = `${e.image}`;
+    img.alt = `${e.title}`;
     card.append(img);
 
     //skapa card-body
@@ -234,19 +235,21 @@ function displayCartInDropdown() {
     btnGroup.classList.add('button-group');
     const editBtn = document.createElement("button");
     editBtn.classList.add("edit-btn", "btn", "btn-outline-info", "btn-sm", "p-2", "m-2");
+    editBtn.setAttribute('aria-label', 'edit-cart');
     editBtn.innerHTML = "Edit order";
     editBtn.addEventListener("click", function () {
       window.location.href = "cart.html";
     });
-    const checkOutBtn = document.createElement("button");
-    checkOutBtn.classList.add("checkout-btn", "btn", "btn-outline-danger", "btn-sm", "p-2", "m-2");
-    checkOutBtn.innerHTML = "Checkout";
-    checkOutBtn.addEventListener("click", function () {
+    const checkoutBtn = document.createElement("button");
+    checkoutBtn.classList.add("checkout-btn", "btn", "btn-outline-danger", "btn-sm", "p-2", "m-2");
+    checkoutBtn.setAttribute('aria-label', 'checkout');
+    checkoutBtn.innerHTML = "Checkout";
+    checkoutBtn.addEventListener("click", function () {
       window.location.href = "checkout.html";
     });
 
     btnGroup.appendChild(editBtn);
-    btnGroup.appendChild(checkOutBtn);
+    btnGroup.appendChild(checkoutBtn);
 
     cartDropdown.appendChild(btnGroup);
 

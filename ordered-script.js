@@ -8,6 +8,7 @@ document.getElementById("fullName").innerHTML = sessionStorage.getItem("name");
 document.getElementById("theAddress").innerHTML = sessionStorage.getItem("street") + "<br> " + sessionStorage.getItem("postal") + "<br> " + sessionStorage.getItem("city");
 var img = document.createElement("img");
 img.src = product.image;
+img.alt = product.title;
 img.classList.add("productImg");
 document.querySelector(".productImg").append(img);
 

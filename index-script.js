@@ -59,6 +59,7 @@ function renderCards(json) {
     let img = document.createElement("img");
     img.className = "card-img-top";
     img.src = `${e.image}`;
+    img.alt = `${e.title}`;
     card.append(img);
 
     //skapa card-body

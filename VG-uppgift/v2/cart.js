@@ -51,6 +51,7 @@ function showCartTable() {
       const plusBtn = document.createElement('button');
       plusBtn.innerHTML = '<i class="bi bi-plus-circle-dotted"></i>';
       plusBtn.classList.add('btn', 'btn-outline-info', 'plus-button');
+      plusBtn.setAttribute('aria-label', 'add-one');
       editCell.appendChild(plusBtn);
       plusBtn.addEventListener('click', () => {
         const index = cart.findIndex((cartItem) => cartItem.title === item.title);
@@ -69,6 +70,7 @@ function showCartTable() {
       const minusBtn = document.createElement('button');
       minusBtn.innerHTML = '<i class="bi bi-dash-circle-dotted"></i>';
       minusBtn.classList.add('btn', 'btn-outline-warning', 'minus-button');
+      minusBtn.setAttribute('aria-label', 'minus-one');
       editCell.appendChild(minusBtn);
       minusBtn.addEventListener('click', () => {
         const index = cart.findIndex((cartItem) => cartItem.title === item.title);
@@ -83,6 +85,7 @@ function showCartTable() {
       const removeButton = document.createElement('button');
       removeButton.innerHTML = '<i class="bi bi-trash"></i>';
       removeButton.classList.add('btn', 'btn-outline-danger', 'remove-button');
+      removeButton.setAttribute('aria-label', 'remove');
       removeCell.appendChild(removeButton);
   
       removeButton.addEventListener('click', (function (title) {

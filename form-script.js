@@ -59,6 +59,7 @@ document.getElementById("productInfo").innerHTML = product.title;
 document.getElementById("price").innerHTML = "€ " + product.price.toFixed(2); 
 var img = document.createElement("img");
 img.src = product.image;
+img.alt = `${product.title}`;
 document.querySelector(".productImg").appendChild(img);
 img.classList.add("productImg");
 
